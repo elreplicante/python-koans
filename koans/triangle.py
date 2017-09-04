@@ -16,9 +16,22 @@
 # and
 #   about_triangle_project_2.py
 #
+
+EQUILATERAL_SIDES = 1
+ISOSCELES_SIDES = 2
+SCALENE_SIDES = 3
+
+RULES = {
+  EQUILATERAL_SIDES: 'equilateral',
+  ISOSCELES_SIDES: 'isosceles',
+  SCALENE_SIDES: 'scalene'
+}
+
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    sides = [a, b, c]
+    unique_sides = len(set(sides))
+
+    return RULES[unique_sides]
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
