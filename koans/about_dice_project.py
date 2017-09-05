@@ -6,6 +6,9 @@ from runner.koan import *
 import random
 
 class DiceSet:
+    MINIMUM_DICE_VALUE = 1
+    MAXIMUM_DICE_VALUE = 6
+
     def __init__(self):
         self._values = None
 
@@ -16,7 +19,10 @@ class DiceSet:
     def roll(self, n):
         self._values = []
         for i in range(n):
-            self._values.append(random.randint(1,6))
+            self._values.append(self.__random_dice_value__())
+
+    def __random_dice_value__(self):
+        return random.randint(self.MINIMUM_DICE_VALUE, self.MAXIMUM_DICE_VALUE)
 
 class AboutDiceProject(Koan):
     def test_can_create_a_dice_set(self):
